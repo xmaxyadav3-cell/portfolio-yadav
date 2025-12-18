@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gunjan - Full-Stack Developer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    /* --- Global Reset and Variables --- */
+:root {
+    --dark-bg: #121212; /* Main Background */
+    --card-bg: #1E1E1E; /* Card Background/Secondary BG */
+    --accent-color: #00ADB5; /* Primary Accent Color (Teal/Cyan) */
+    --text-color: #E0E0E0; /* Light Text */
+    --text-secondary: #AAAAAA; /* Secondary Text */
+    --padding-section: 80px 5%;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+h2 strong {
+    color: var(--text-color);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: #00FFFF; /* Lighter accent on hover */
+}
+
+/* --- Utility Classes --- */
+.section-padding {
+    padding: var(--padding-section);
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.primary-btn {
+    background-color: var(--accent-color);
+    color: var(--dark-bg);
+    border: none;
+}
+
+.primary-btn:hover {
+    background-color: #0099A0;
+    transform: translateY(-2px);
+    color: var(--dark-bg); /* Keep text dark */
+}
+
+
+/* --- Header & Navigation --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+nav a {
+    margin-left: 25px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+.menu-icon {
+    display: none; /* Hide on desktop */
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* --- 1. Home/Hero Section --- */
+.hero {
+    min-height: 80vh;
+    padding: var(--padding-section);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.hero-content h1 strong {
+    color: var(--accent-color);
+}
+
+.hero-content h2 {
+    font-size: 1.5em;
+    color: var(--accent-color);
+    margin-bottom: 25px;
+}
+
+.hero-content p {
+    color: var(--text-secondary);
+    font-size: 1.1em;
+}
+
+.hero-image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 50%; /* Make it circular */
+    border: 5px solid var(--accent-color);
+    box-shadow: 0 0 20px rgba(0, 173, 181, 0.5); /* Glowing effect */
+}
+
+
+/* --- 2. Services Section --- */
+.service-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.service-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 350px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 173, 181, 0.2);
+}
+
+.service-card i {
+    font-size: 3em;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    font-size: 1.5em;
+    color: var(--text-color);
+}
+
+.service-card p {
+    color: var(--text-secondary);
+}
+
+
+/* --- 3. Skills Section --- */
+.skills-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.skills-container h3 {
+    margin-top: 25px;
+    margin-bottom: 5px;
+    font-size: 1.3em;
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 3px;
+}
+
+.skills-container p {
+    font-size: 1.1em;
+    color: var(--text-secondary);
+    padding-left: 10px;
+}
+
+/* --- 4. Projects Section --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.project-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.project-link {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+
+/* --- 5. Certificates Section --- */
+.certificate-list {
+    list-style: none;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.certificate-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--text-secondary);
+    color: var(--text-color);
+    font-size: 1.1em;
+}
+  .certificate-list li img {
+            max-width: 800px;
+            height: 300px;
+            border: 2px solid rgba(0, 173, 181, 0.5) ;
+            border-radius: 13px;
+            box-shadow: 2px 4px 4px 0px;
+            cursor: pointer;
+            margin: 10px;
+            transition: 400ms;
+        }
+
+.certificate-list li:last-child {
+    border-bottom: none;
+}
+
+
+/* --- 6. Contact Section --- */
+#contact {
+    text-align: center;
+}
+
+.contact-info {
+    margin-bottom: 40px;
+    font-size: 1.2em;
+    color: var(--text-secondary);
+}
+
+.contact-info p {
+    margin: 10px 0;
+}
+
+.contact-info i {
+    color: var(--accent-color);
+    margin-right: 10px;
+    width: 20px;
+}
+
+#contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    padding: 15px;
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    font-size: 1em;
+}
+
+#contact-form textarea {
+    resize: vertical;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border-color: #00FFFF;
+    box-shadow: 0 0 8px rgba(0, 173, 181, 0.5);
+}
+
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--card-bg);
+    color: var(--text-secondary);
+    font-size: 0.9em;
+}
+
+
+/* --- Media Queries (Responsiveness) --- */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-image {
+        margin-bottom: 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile Navigation */
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--card-bg);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav a {
+        margin: 0;
+        padding: 15px 20px;
+        border-bottom: 1px solid #333;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .section-padding {
+        padding: 60px 5%;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-image img {
+        width: 150px;
+        height: 150px;
+    }
+}
+/* --- Global Reset and Variables --- */
+:root {
+    --dark-bg: #121212;
+    --card-bg: #1E1E1E;
+    --accent-color: #00ADB5;
+    --text-color: #E0E0E0;
+    --text-secondary: #AAAAAA;
+    --padding-section: 80px 5%;
+    --transition-speed: 0.5s; /* Increased speed for smoother effects */
+}
+
+/* ... (Existing global styles like *, body, h1, h2, a, etc. remain the same) ... */
+
+/* --- Modern Effect 1: Enhanced Button Glow --- */
+.btn {
+    /* ... (Existing btn styles) ... */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0); /* Initial subtle shadow */
+}
+
+.primary-btn:hover {
+    background-color: #0099A0;
+    transform: translateY(-3px); /* Increased lift */
+    /* Add a glowing box shadow on hover */
+    box-shadow: 0 5px 20px rgba(0, 173, 181, 0.5), 0 0 10px rgba(0, 173, 181, 0.3);
+}
+
+/* --- Modern Effect 2: Active Nav Link Indicator --- */
+header nav a.active {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 3px;
+}
+
+/* --- Modern Effect 3: Floating Hero Image Animation --- */
+.hero-image {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); } /* Moves up and down 10px */
+    100% { transform: translateY(0); }
+}
+
+/* --- Modern Effect 4: Scroll Reveal Initial State (Hidden) --- */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px); /* Start 50px below its final position */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0); /* Move to final position */
+}
+
+
+/* --- Card Hover Effect Enhancement --- */
+.service-card:hover {
+    transform: translateY(-8px); /* Increased lift */
+    box-shadow: 0 15px 30px rgba(0, 173, 181, 0.2), 0 0 10px rgba(0, 173, 181, 0.5); /* Stronger glow */
+    border: 1px solid var(--accent-color);
+}
+
+/* ... (Remaining CSS for sections, contact form, footer, and media queries remains the same) ... */
+</style>
+<body>
+
+    <header>
+        <div class="logo">GUNJAN</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm Gunjan</h1>
+            <h2>A Full-Stack Developer & AI Enthusiast</h2>
+            <p> Pursuing BCA in Engineering and Technology at Gurugram University (2025-2029). Also enrolled
+                in Master of Computer Applications program.. I am a web developer with a strong focus on creating ,
+                responsive , dynamic and visually appealing website tailored to client needs. Proficient in HTML,
+                Artificial Intelligence (AI), and ChatGPT. Building strong foundation in modern web technologies.
+            "Results-driven Full-Stack Developer with a focus on building scalable web applications.Proficient in the modern LAMP/MEAN stacks, with deep expertise in designing optimized MySQL databases, writing complex queries, and ensuring data integrity to create robust and efficient back-end systems."</p>
+            <a href="resume_gunjan.pdf" download class="btn primary-btn">Download Resume <i class="fas fa-download"></i></a>
+             <a href="contact" download class="btn primary-btn">Hire Me</a>
+        </div>
+        </div>
+        <div class="hero-image">
+            <img src="C:\Users\HP\Desktop\gunjan.jpg" alt="Professional illustration or photo">
+        </div>
+    </section>
+
+    <section id="services" class="section-padding">
+        <h2>🚀 My Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <i class="fas fa-code"></i>
+                <h3>Full-Stack Web Development</h3>
+                <p>Building end-to-end robust web applications using LAMP/MEAN stacks and ensuring data integrity with MySQL.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-database"></i>
+                <h3>Database Design & Optimization</h3>
+                <p>Designing optimized MySQL databases and writing complex queries for scalable, efficient back-end systems.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-robot"></i>
+                <h3>Artificial Intelligence Integration</h3>
+                <p>Applying knowledge of Artificial Intelligence to improve existing products and processes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section-padding">
+        <h2>🛠️ Technical Skills</h2>
+        <div class="skills-container">
+            <h3>Languages</h3>
+            <p>C, Python, Javascript</p>
+
+            <h3>Web Development</h3>
+           <p>HTML, CSS, Javascript </p>
+
+            <h3>Databases</h3>
+           <p>Mysql </p>
+
+            <h3>Tools</h3>
+            <p>GitHub/Git, Vscode , Antigravity</p>
+
+            <h3>Core Concepts</h3>
+           <p>Data Structure and Algorithms, Artificial Intelligence </p>
+
+            <h3>Soft Skills</h3>
+          <p>Time management, Teamwork, Problem-solving </p>
+        </div>
+    </section>
+
+    <section id="projects" class="section-padding">
+        <h2>💡 Featured Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+              <h3>Portifolio Website </h3>
+              <p>A self-describing website providing detailed information, certificates, and project details about myself.</p>
+                <a href="#" class="project-link">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>E-commerce Backend (Conceptual)</h3>
+                <p>A hypothetical backend system built with MySQL and a Python/Java stack, focusing on database optimization and query efficiency.</p>
+                <a href="#" class="project-link">Case Study</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates" class="section-padding">
+        <h2>🏅 Certificates & Awards</h2>
+        <ul class="certificate-list">
+        <li><img src="C:\Users\HP\Desktop\certificate.jpg" alt=""></li>
+        <li><img src="C:\Users\HP\Desktop\certificate2.jpg" alt=""></li>
+        <li> <img src="C:\Users\HP\Desktop\certificate3.jpg" alt=""></li>
+        <li><img src="C:\Users\HP\Desktop\certificate4.jpg" alt=""></li>
+        <li><img src="C:\Users\HP\Desktop\certificate5.jpg" alt=""></li>
+        <li><img src="C:\Users\HP\Desktop\certificate6.jpg" alt=""></li>
+         <li><img src="C:\Users\HP\Desktop\certificate7.jpg" alt=""></li>
+        </ul>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <h2>📞 Get In Touch</h2>
+        <div class="contact-info">
+            <p>I'm currently available for freelance work and open to new opportunities.</p>
+          <p><i class="fas fa-envelope"></i> Email: <a href="mailto:Xamxyadav3@gmail.com">Xamxyadav3@gmail.com</a></p>
+           <p><i class="fas fa-phone"></i> Phone/Whatsapp: 9050045750</p>
+         <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/gunjan-yadav-8a5404327" target="_blank">linkedin/in/gunjan-yadav-8a5404327</a></p>
+          <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/xmaxyadav3-cell" target="_blank">xmaxyadav3-cell</a></p>
+        </div>
+        
+        <form id="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" class="btn primary-btn">Send Message</button>
+        </form>
+        <p id="form-message" style="margin-top: 20px; text-align: center;"></p>
+        <h2>Thank you to visit my website!</h2>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Gunjan | Full-Stack Developer</p>
+    </footer>
+
+    <script src="script.js">
+        // --- Mobile Menu Toggle ---
+function toggleMenu() {
+    const nav = document.querySelector('nav');
+    nav.classList.toggle('active');
+}
+
+// --- Smooth Scrolling for Navigation ---
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Close the menu if it's open (for mobile)
+        const nav = document.querySelector('nav');
+        if (nav.classList.contains('active')) {
+            nav.classList.remove('active');
+        }
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80, // Offset for the fixed header
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// --- Contact Form Submission Handler (Client-side simulation) ---
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formMessage = document.getElementById('form-message');
+    
+    // In a real application, you would send this data to a server here (e.g., using fetch API)
+    
+    // Simulation of a successful submission:
+    formMessage.innerHTML = 'Thank you for your message! I will get back to you shortly.';
+    formMessage.style.color = '#00ADB5'; // Success color
+    this.reset(); // Clear the form
+    
+    // Clear message after 5 seconds
+    setTimeout(() => {
+        formMessage.innerHTML = '';
+    }, 5000);
+});
+// --- 1. Mobile Menu Toggle ---
+function toggleMenu() {
+    const nav = document.querySelector('nav');
+    nav.classList.toggle('active');
+}
+
+// --- Smooth Scrolling for Navigation (updated to use section IDs) ---
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Close the menu if it's open (for mobile)
+        const nav = document.querySelector('nav');
+        if (nav.classList.contains('active')) {
+            nav.classList.remove('active');
+        }
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80, // Offset for the fixed header
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// --- 2. Scroll Reveal Animation using Intersection Observer ---
+const scrollObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            // We only want to run the animation once, so we stop observing
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    root: null,
+    threshold: 0.1, // Trigger when 10% of the item is visible
+    rootMargin: '0px 0px -50px 0px' // Slightly delay the reveal
+});
+
+// Observe all elements with the 'scroll-reveal' class
+document.querySelectorAll('.scroll-reveal').forEach(element => {
+    scrollObserver.observe(element);
+});
+
+
+// --- 3. Active Navigation Link Indicator using Intersection Observer ---
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('nav a');
+
+const activeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const sectionId = entry.target.id;
+            
+            // Remove 'active' class from all links
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            // Add 'active' class to the link matching the visible section
+            const activeLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+    });
+}, {
+    root: null,
+    threshold: 0.5, // Trigger when 50% of the section is visible
+    rootMargin: '-80px 0px -80px 0px' // Adjusted margin to account for header
+});
+
+sections.forEach(section => {
+    activeObserver.observe(section);
+});
+
+
+// --- Contact Form Submission Handler (Client-side simulation) ---
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formMessage = document.getElementById('form-message');
+    
+    // In a real application, you would send this data to a server here
+    
+    // Simulation of a successful submission:
+    formMessage.innerHTML = 'Thank you for your message! I will get back to you shortly.';
+    formMessage.style.color = '#00ADB5'; // Success color
+    this.reset(); // Clear the form
+    
+    // Clear message after 5 seconds
+    setTimeout(() => {
+        formMessage.innerHTML = '';
+    }, 5000);
+});
+    </script>
+    <span id="element"></span>
+    <script>
+    var typed = new Typed('#element', {
+        strings: ['Web developer', 'Full-end develpoer', 'Data analysts'],
+        typeSpeed: 50,
+    });
+</script>
+</body>
+</html>
